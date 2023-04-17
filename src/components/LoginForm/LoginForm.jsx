@@ -5,18 +5,20 @@ import {useSelector} from 'react-redux';
 function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
   const errors = useSelector(store => store.errors);
   const dispatch = useDispatch();
 
   const login = (event) => {
     event.preventDefault();
 
-    if (username && password) {
+    if (username && password ) {
       dispatch({
         type: 'LOGIN',
         payload: {
           username: username,
           password: password,
+
         },
       });
     } else {
@@ -59,6 +61,7 @@ function LoginForm() {
       <div>
         <input className="btn" type="submit" name="submit" value="Log In" />
       </div>
+      <p>Don't have an account?</p>
     </form>
   );
 }
